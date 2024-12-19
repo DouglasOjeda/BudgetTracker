@@ -111,7 +111,7 @@ public class Expense {
 	/** The year the Expense took place */
 	private int yearOfExpense;
 	/** Whether the Expense is reccuring */
-	private boolean reccuring;
+	private boolean recurring;
 	/**
 	 * Constructs an expense with all fields.
 	 * @param expenseType the Expense's type
@@ -124,7 +124,7 @@ public class Expense {
 	 * @param reccuring whether Expense is recurring
 	 */
 	public Expense(ExpenseType expenseType, String name, String description, int amount,
-			int dayOfExpense, int monthOfExpense, int yearOfExpense, boolean reccuring) {
+			int dayOfExpense, int monthOfExpense, int yearOfExpense, boolean recurring) {
 		setExpenseType(expenseType);
 		setName(name);
 		setDescription(description);
@@ -132,7 +132,7 @@ public class Expense {
 		setDayOfExpense(dayOfExpense);
 		setMonthOfExpense(monthOfExpense);
 		setYearOfExpense(yearOfExpense);
-		setReccuring(reccuring);
+		setReccuring(recurring);
 	}
 	/**
 	 * Constructs an expense with all fields. Used for File I/O.
@@ -374,14 +374,14 @@ public class Expense {
 	 * @return whether reccuring
 	 */
 	public boolean isReccuring() {
-		return reccuring;
+		return recurring;
 	}
 	/**
 	 * Sets whether the Expense is recurring
 	 * @param reccuring the reccuring to set
 	 */
-	public void setReccuring(boolean reccuring) {
-		this.reccuring = reccuring;
+	public void setReccuring(boolean recurring) {
+		this.recurring = recurring;
 	}
 	/**
 	 * Returns String representation of Expense.
@@ -389,8 +389,8 @@ public class Expense {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%04d,%02d,%02d,%s,%s,%d\n%s", yearOfExpense, monthOfExpense,
-				yearOfExpense, getStringExpenseType(), name, amount, description);
+		return String.format("%04d,%02d,%02d,%s,%s,%d,%b\n%s", yearOfExpense, monthOfExpense,
+				yearOfExpense, getStringExpenseType(), name, amount, recurring, description);
 	}
 	
 }
