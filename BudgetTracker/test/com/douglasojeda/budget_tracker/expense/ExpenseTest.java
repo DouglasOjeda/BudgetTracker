@@ -12,7 +12,7 @@ public class ExpenseTest {
 	 */
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		Expense e1 = new Expense(null, null, null, 0, 0, 0, 0, false);
 	}
 
 }
