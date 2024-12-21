@@ -127,7 +127,7 @@ public class Expense {
 	 * the dayOfExpense is less than 0. When the monthOfExpense is less than 0. When
 	 * the yearOfExpense it less than 0.
 	 */
-	public Expense(ExpenseType expenseType, String name, String description, double amount,
+	public Expense(ExpenseType expenseType, String name, String description, int amount,
 			int dayOfExpense, int monthOfExpense, int yearOfExpense, boolean recurring) {
 		setExpenseType(expenseType);
 		setName(name);
@@ -346,17 +346,6 @@ public class Expense {
 			throw new IllegalArgumentException("Amount can't be negative.");
 		}
 		this.amount = amount;
-	}
-	/**
-	 * Sets the Expense's amount with dollars.
-	 * @param amount the amount to set
-	 * @throws IllegalArgumentException when the amount is less than 0.
-	 */
-	private void setAmount(double amount) {
-		if (amount < 0) {
-			throw new IllegalArgumentException("Amount can't be negative.");
-		}
-		this.amount = (int)(amount * 100);
 	}
 	/**
 	 * Returns the day the of the Expense.
