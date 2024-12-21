@@ -127,7 +127,7 @@ public class Expense {
 	 * the dayOfExpense is less than 0. When the monthOfExpense is less than 0. When
 	 * the yearOfExpense it less than 0.
 	 */
-	public Expense(ExpenseType expenseType, String name, String description, int amount,
+	public Expense(ExpenseType expenseType, String name, String description, double amount,
 			int dayOfExpense, int monthOfExpense, int yearOfExpense, boolean recurring) {
 		setExpenseType(expenseType);
 		setName(name);
@@ -217,7 +217,7 @@ public class Expense {
 	 * @param expenseType the expenseType to set
 	 * @throws IllegalArgumentException when expenseType is null.
 	 */
-	public void setExpenseType(ExpenseType expenseType) {
+	private void setExpenseType(ExpenseType expenseType) {
 		if (expenseType == null) {
 			throw new IllegalArgumentException("expenseType is null.");
 		}
@@ -229,7 +229,7 @@ public class Expense {
 	 * @throws IllegalArgumentException when the expenseType is not one of the preset
 	 * ones.
 	 */
-	public void setExpenseType(String expenseType) {
+	private void setExpenseType(String expenseType) {
 		switch (expenseType) {
 		case HOUSING_NAME:
 			this.expenseType = ExpenseType.HOUSING;
@@ -298,7 +298,7 @@ public class Expense {
 	 * @param name the name to set
 	 * @throws IllegalArgumentException when the name is null, or empty.
 	 */
-	public void setName(String name) {
+	private void setName(String name) {
 		if (name == null || "".equals(name)) {
 			throw new IllegalArgumentException("Invalid name for Expense.");
 		}
@@ -316,7 +316,7 @@ public class Expense {
 	 * @param description the description to set
 	 * @throws IllegalArgumentException when the name is null, or empty.
 	 */
-	public void setDescription(String description) {
+	private void setDescription(String description) {
 		if (description == null || "".equals(description)) {
 			throw new IllegalArgumentException("Invalid description for Expense.");
 		}
@@ -341,7 +341,7 @@ public class Expense {
 	 * @param amount the amount to set
 	 * @throws IllegalArgumentException when the amount is less than 0.
 	 */
-	public void setAmount(int amount) {
+	private void setAmount(int amount) {
 		if (amount < 0) {
 			throw new IllegalArgumentException("Amount can't be negative.");
 		}
@@ -352,7 +352,7 @@ public class Expense {
 	 * @param amount the amount to set
 	 * @throws IllegalArgumentException when the amount is less than 0.
 	 */
-	public void setAmount(double amount) {
+	private void setAmount(double amount) {
 		if (amount < 0) {
 			throw new IllegalArgumentException("Amount can't be negative.");
 		}
@@ -370,7 +370,7 @@ public class Expense {
 	 * @param dayOfExpense the dayOfExpense to set
 	 * @throws IllegalArgumentException when the dayOfExpense is less than 0.
 	 */
-	public void setDayOfExpense(int dayOfExpense) {
+	private void setDayOfExpense(int dayOfExpense) {
 		if (dayOfExpense < 0) {
 			throw new IllegalArgumentException("Day can't be negative.");
 		}
@@ -388,7 +388,7 @@ public class Expense {
 	 * @param monthOfExpense the monthOfExpense to set
 	 * @throws IllegalArgumentException when the monthOfExpense is less than 0.
 	 */
-	public void setMonthOfExpense(int monthOfExpense) {
+	private void setMonthOfExpense(int monthOfExpense) {
 		if (monthOfExpense < 0) {
 			throw new IllegalArgumentException("Month can't be negative.");
 		}
@@ -406,7 +406,7 @@ public class Expense {
 	 * @param yearOfExpense the yearOfExpense to set
 	 * @throws IllegalArgumentException when the yearOfExpense it less than 0.
 	 */
-	public void setYearOfExpense(int yearOfExpense) {
+	private void setYearOfExpense(int yearOfExpense) {
 		if (yearOfExpense < 0) {
 			throw new IllegalArgumentException("Year can't be negative.");
 		}
@@ -423,7 +423,7 @@ public class Expense {
 	 * Sets whether the Expense is recurring
 	 * @param reccuring the reccuring to set
 	 */
-	public void setReccuring(boolean recurring) {
+	private void setReccuring(boolean recurring) {
 		this.recurring = recurring;
 	}
 	/**
