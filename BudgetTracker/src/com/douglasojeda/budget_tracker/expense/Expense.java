@@ -60,7 +60,9 @@ public class Expense {
 		/** Pet Expense */
 		PET,
 		/** Misc Expense */
-		MISC
+		MISC,
+		/** Only used for code tests (Not an actual Expense Type */
+		Test
 	}
 	/** Housing name for display purposes */
 	public static final String HOUSING_NAME = "Housing";
@@ -209,7 +211,7 @@ public class Expense {
 		case MISC:
 			return MISC_NAME;
 		default:
-			return null;
+			throw new exception;
 		}
 	}
 	/**
