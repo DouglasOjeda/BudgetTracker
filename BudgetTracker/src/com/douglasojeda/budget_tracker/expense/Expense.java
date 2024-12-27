@@ -4,8 +4,8 @@ import com.douglasojeda.budget_tracker.exception.NoMatchingStringNameException;
 
 /**
  * Expense is a POJO, that encapsulates a purchase. 
- * Expense has a type, name, and description. An Expense also holds the day, month,
- * and year in which it was created. An Expense also keeps whether it is recurring.
+ * Expense has a type, name, amount, and description. An Expense also holds the day, month,
+ * and year, in which it was created. An Expense also keeps whether it is recurring.
  * @author douglasojeda
  */
 public class Expense {
