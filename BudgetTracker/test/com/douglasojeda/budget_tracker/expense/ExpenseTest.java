@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.douglasojeda.budget_tracker.exception.NoMatchingStringNameException;
 import com.douglasojeda.budget_tracker.expense.Expense.ExpenseType;
 /**
  * Testing class for Expense
@@ -27,7 +28,7 @@ public class ExpenseTest {
 	public void testMainConstructor() {
 		//main constructor
 		Expense e1 = new Expense(ExpenseType.HOUSING, NAME, DESCRIPTION,
-				AMOUNT, DAY, MONTH, YEAR, RECURRING);
+				AMOUNT, DAY, MONTH, YEAR, false);
 		assertEquals(Expense.HOUSING_NAME, e1.getStringExpenseType());
 		assertEquals(NAME, e1.getName());
 		assertEquals(DESCRIPTION, e1.getDescription());
@@ -36,6 +37,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e1.getDayOfExpense());
 		assertEquals(MONTH, e1.getMonthOfExpense());
 		assertEquals(YEAR, e1.getYearOfExpense());
+		assertFalse(e1.isReccuring());
 		
 		Expense e2 = new Expense(ExpenseType.TRANSPORTATION, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -47,6 +49,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e2.getDayOfExpense());
 		assertEquals(MONTH, e2.getMonthOfExpense());
 		assertEquals(YEAR, e2.getYearOfExpense());
+		assertTrue(e2.isReccuring());
 		
 		Expense e3 = new Expense(ExpenseType.INSURANCE, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -58,6 +61,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e3.getDayOfExpense());
 		assertEquals(MONTH, e3.getMonthOfExpense());
 		assertEquals(YEAR, e3.getYearOfExpense());
+		assertTrue(e3.isReccuring());
 		
 		Expense e4 = new Expense(ExpenseType.UTILITIES, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -69,6 +73,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e4.getDayOfExpense());
 		assertEquals(MONTH, e4.getMonthOfExpense());
 		assertEquals(YEAR, e4.getYearOfExpense());
+		assertTrue(e4.isReccuring());
 		
 		Expense e5 = new Expense(ExpenseType.INVESTMENTS, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -80,6 +85,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e5.getDayOfExpense());
 		assertEquals(MONTH, e5.getMonthOfExpense());
 		assertEquals(YEAR, e5.getYearOfExpense());
+		assertTrue(e5.isReccuring());
 		
 		Expense e6 = new Expense(ExpenseType.SAVINGS, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -91,6 +97,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e6.getDayOfExpense());
 		assertEquals(MONTH, e6.getMonthOfExpense());
 		assertEquals(YEAR, e6.getYearOfExpense());
+		assertTrue(e6.isReccuring());
 		
 		Expense e7 = new Expense(ExpenseType.PROFESSIONAL, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -102,6 +109,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e7.getDayOfExpense());
 		assertEquals(MONTH, e7.getMonthOfExpense());
 		assertEquals(YEAR, e7.getYearOfExpense());
+		assertTrue(e7.isReccuring());
 		
 		Expense e8 = new Expense(ExpenseType.GROCERIES, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -113,6 +121,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e8.getDayOfExpense());
 		assertEquals(MONTH, e8.getMonthOfExpense());
 		assertEquals(YEAR, e8.getYearOfExpense());
+		assertTrue(e8.isReccuring());
 		
 		Expense e9 = new Expense(ExpenseType.HEALTH, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -124,6 +133,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e9.getDayOfExpense());
 		assertEquals(MONTH, e9.getMonthOfExpense());
 		assertEquals(YEAR, e9.getYearOfExpense());
+		assertTrue(e9.isReccuring());
 		
 		Expense e10 = new Expense(ExpenseType.HOME_IMPROVEMENT, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -135,6 +145,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e10.getDayOfExpense());
 		assertEquals(MONTH, e10.getMonthOfExpense());
 		assertEquals(YEAR, e10.getYearOfExpense());
+		assertTrue(e10.isReccuring());
 		
 		Expense e11 = new Expense(ExpenseType.PERSONAL_LIFESTYLE, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -146,6 +157,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e11.getDayOfExpense());
 		assertEquals(MONTH, e11.getMonthOfExpense());
 		assertEquals(YEAR, e11.getYearOfExpense());
+		assertTrue(e11.isReccuring());
 		
 		Expense e12 = new Expense(ExpenseType.DINING_OUT, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -157,6 +169,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e12.getDayOfExpense());
 		assertEquals(MONTH, e12.getMonthOfExpense());
 		assertEquals(YEAR, e12.getYearOfExpense());
+		assertTrue(e12.isReccuring());
 		
 		Expense e13 = new Expense(ExpenseType.RECREATION, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -168,6 +181,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e13.getDayOfExpense());
 		assertEquals(MONTH, e13.getMonthOfExpense());
 		assertEquals(YEAR, e13.getYearOfExpense());
+		assertTrue(e13.isReccuring());
 		
 		Expense e14 = new Expense(ExpenseType.ENTERTAINMENT, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -179,6 +193,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e14.getDayOfExpense());
 		assertEquals(MONTH, e14.getMonthOfExpense());
 		assertEquals(YEAR, e14.getYearOfExpense());
+		assertTrue(e14.isReccuring());
 		
 		Expense e15 = new Expense(ExpenseType.CHILD, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -190,6 +205,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e15.getDayOfExpense());
 		assertEquals(MONTH, e15.getMonthOfExpense());
 		assertEquals(YEAR, e15.getYearOfExpense());
+		assertTrue(e15.isReccuring());
 		
 		Expense e16 = new Expense(ExpenseType.PET, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -201,6 +217,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e16.getDayOfExpense());
 		assertEquals(MONTH, e16.getMonthOfExpense());
 		assertEquals(YEAR, e16.getYearOfExpense());
+		assertTrue(e16.isReccuring());
 		
 		Expense e17 = new Expense(ExpenseType.MISC, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -212,11 +229,60 @@ public class ExpenseTest {
 		assertEquals(DAY, e17.getDayOfExpense());
 		assertEquals(MONTH, e17.getMonthOfExpense());
 		assertEquals(YEAR, e17.getYearOfExpense());
+		assertTrue(e17.isReccuring());
+		
 		//Error checking
 		Exception ex1 = assertThrows(IllegalArgumentException.class,
 				() -> new Expense((ExpenseType)null, NAME, DESCRIPTION, AMOUNT, DAY,
 						MONTH, YEAR, RECURRING));
 		assertEquals("expenseType is null.", ex1.getMessage());
+		
+		Expense e18 = new Expense(ExpenseType.TEST, NAME, DESCRIPTION,
+				AMOUNT, DAY, MONTH, YEAR, RECURRING);
+		Exception ex2 = assertThrows(NoMatchingStringNameException.class,
+				() -> e18.getStringExpenseType());
+		assertEquals("TEST doesn't have a proper String constant for display.",
+				ex2.getMessage());
+		
+		Exception ex3 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, null, DESCRIPTION, AMOUNT, DAY,
+						MONTH, YEAR, RECURRING));
+		assertEquals("Invalid name for Expense.", ex3.getMessage());
+		
+		Exception ex4 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, "", DESCRIPTION, AMOUNT, DAY,
+						MONTH, YEAR, RECURRING));
+		assertEquals("Invalid name for Expense.", ex4.getMessage());
+		
+		Exception ex5 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, NAME, null, AMOUNT, DAY,
+						MONTH, YEAR, RECURRING));
+		assertEquals("Invalid description for Expense.", ex5.getMessage());
+		
+		Exception ex6 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, NAME, "", AMOUNT, DAY,
+						MONTH, YEAR, RECURRING));
+		assertEquals("Invalid description for Expense.", ex6.getMessage());
+
+		Exception ex7 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, NAME, DESCRIPTION, -1, DAY,
+						MONTH, YEAR, RECURRING));
+		assertEquals("Amount can't be negative.", ex7.getMessage());
+		
+		Exception ex8 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, NAME, DESCRIPTION, AMOUNT, -1,
+						MONTH, YEAR, RECURRING));
+		assertEquals("Day can't be negative.", ex8.getMessage());
+		
+		Exception ex9 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, NAME, DESCRIPTION, AMOUNT, DAY,
+						-1, YEAR, RECURRING));
+		assertEquals("Month can't be negative.", ex9.getMessage());
+		
+		Exception ex10 = assertThrows(IllegalArgumentException.class,
+				() -> new Expense(ExpenseType.CHILD, NAME, DESCRIPTION, AMOUNT, DAY,
+						MONTH, -1, RECURRING));
+		assertEquals("Year can't be negative.", ex10.getMessage());
 	}
 	/**
 	 * Tests for the I/O constructor.
@@ -225,7 +291,7 @@ public class ExpenseTest {
 	public void testIOConstructor() {
 		//IO constructor
 		Expense e1 = new Expense(Expense.HOUSING_NAME, NAME, DESCRIPTION,
-				AMOUNT, DAY, MONTH, YEAR, RECURRING);
+				AMOUNT, DAY, MONTH, YEAR, false);
 		assertEquals(ExpenseType.HOUSING, e1.getExpenseType());
 		assertEquals(NAME, e1.getName());
 		assertEquals(DESCRIPTION, e1.getDescription());
@@ -234,6 +300,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e1.getDayOfExpense());
 		assertEquals(MONTH, e1.getMonthOfExpense());
 		assertEquals(YEAR, e1.getYearOfExpense());
+		assertFalse(e1.isReccuring());
 		
 		Expense e2 = new Expense(Expense.TRANSPORTATION_NAME, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -245,6 +312,7 @@ public class ExpenseTest {
 		assertEquals(DAY, e2.getDayOfExpense());
 		assertEquals(MONTH, e2.getMonthOfExpense());
 		assertEquals(YEAR, e2.getYearOfExpense());
+		assertTrue(e2.isReccuring());
 		
 		Expense e3 = new Expense(Expense.INSURANCE_NAME, NAME, DESCRIPTION,
 				AMOUNT, DAY, MONTH, YEAR, RECURRING);
@@ -410,10 +478,20 @@ public class ExpenseTest {
 		assertEquals(DAY, e17.getDayOfExpense());
 		assertEquals(MONTH, e17.getMonthOfExpense());
 		assertEquals(YEAR, e17.getYearOfExpense());
+		
 		//Error checking
 		Exception ex1 = assertThrows(IllegalArgumentException.class,
 				() -> new Expense("Unknown Expense", NAME, DESCRIPTION, AMOUNT, DAY,
 						MONTH, YEAR, RECURRING));
 		assertEquals("Unknown expense type name.", ex1.getMessage());
+	}
+	/**
+	 * Tests for the toString method.
+	 */
+	@Test
+	public void testToString() {
+		Expense e1 = new Expense(ExpenseType.HOUSING, NAME, DESCRIPTION,
+				AMOUNT, DAY, MONTH, YEAR, RECURRING);
+		assertEquals("~2024,11,05,Housing,Name,1999,true\nDesc.", e1.toString());
 	}
 }

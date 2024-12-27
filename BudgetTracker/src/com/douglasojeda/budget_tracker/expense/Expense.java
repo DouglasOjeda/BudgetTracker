@@ -1,4 +1,7 @@
 package com.douglasojeda.budget_tracker.expense;
+
+import com.douglasojeda.budget_tracker.exception.NoMatchingStringNameException;
+
 /**
  * Expense is a POJO, that encapsulates a purchase. 
  * Expense has a type, name, and description. An Expense also holds the day, month,
@@ -62,7 +65,7 @@ public class Expense {
 		/** Misc Expense */
 		MISC,
 		/** Only used for code tests (Not an actual Expense Type */
-		Test
+		TEST
 	}
 	/** Housing name for display purposes */
 	public static final String HOUSING_NAME = "Housing";
@@ -211,7 +214,8 @@ public class Expense {
 		case MISC:
 			return MISC_NAME;
 		default:
-			throw new exception;
+			throw new NoMatchingStringNameException(expenseType.name() + " doesn't have a " +
+													"proper String constant for display.");
 		}
 	}
 	/**
@@ -423,8 +427,8 @@ public class Expense {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%04d,%02d,%02d,%s,%s,%d,%b\n%s", yearOfExpense, monthOfExpense,
-				yearOfExpense, getStringExpenseType(), name, amount, recurring, description);
+		return String.format("~%04d,%02d,%02d,%s,%s,%d,%b\n%s", yearOfExpense, monthOfExpense,
+				dayOfExpense, getStringExpenseType(), name, amount, recurring, description);
 	}
 	
 }
