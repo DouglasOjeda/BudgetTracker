@@ -1,6 +1,7 @@
 package com.douglasojeda.budget_tracker.exception;
 /**
- * TODO
+ * Exception is used when there is a field that doesn't have a corresponding String name
+ * constant that can be used for display.
  * @author douglasojeda
  */
 public class NoMatchingStringNameException extends RuntimeException {
@@ -15,6 +16,10 @@ public class NoMatchingStringNameException extends RuntimeException {
 	public NoMatchingStringNameException() {
 		this(DEFAULT_MESSAGE);
 	}
+	/**
+	 * Constructs a NoMatchingStringNameException with custom message.
+	 * @param message the message for the Exception
+	 */
 	public NoMatchingStringNameException(String message) {
 		super(message);
 	}
